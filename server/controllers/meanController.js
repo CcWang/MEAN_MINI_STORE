@@ -83,7 +83,7 @@ module.exports = {
         if(err){
           console.log('db wrong');
         }else{
-          Product.update({_id:req.body.product._id},{quantity:req.body.product.quantity-1},function(err, data){
+          Product.update({_id:req.body.product._id},{quantity:req.body.product.quantity-req.body.quantity},function(err, data){
             if(err){
               console.log('db err');
             }else{

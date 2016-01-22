@@ -1,0 +1,26 @@
+<div ng-controller='OrderController'>
+  <h1>Add a new orders</h1>
+  Customer:
+  <select ng-options='c.name for c in customers' ng-model='new_order.customer'></select><br>
+  Order:
+  <select ng-options = 'n for n in [1,2,3,4,5,6,7,8,9,10]' ng-model='new_order.quantity'></select>
+  <select ng-options='p.name for p in products' ng-model='new_order.product'></select>
+  <input type="submit" value='Order' ng-click='create()'>
+  <p>{{orders.message}}</p>
+  <hr>
+  <table>
+      <tr>
+        <th>Customer Name</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Created Date</th>
+        <!-- <th>Actions</th> -->
+      </tr>
+      <tr ng-repeat='order in orders | orderBy: "created"'>
+        <td>{{order.customer}}</td>
+        <td>{{order.product}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.created.slice(0,10)}}</td>
+      </tr>
+    </table>
+</div>

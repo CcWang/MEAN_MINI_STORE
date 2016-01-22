@@ -1,0 +1,28 @@
+<div ng-controller='OrderController'>
+  <h1>Dashboard</h1>
+  <p>Time now: {{timeNow}}</p>
+  <input type="text" ng-model='filterStuff' placeholder ='search...'>
+  <div ng-repeat='product in products | filter: filterStuff' class="products" >
+    <img ng-src="{{product.image}}" alt = '{{product.name}}picture'>
+    <p ng-bind='product.name'></p>
+    <!-- <p ng-bind='product.description'></p> -->
+    <p>(<span ng-bind='product.quantity'></span> left)</p>
+  </div>
+  <div>
+    <h4>Recent Orders</h4>
+    <ul>
+      <li ng-repeat='order in orders | limitTo: -4 | orderBy: "created": true | filter: filterStuff' >
+        {{order.customer}} purchased {{order.quantity}} {{order.product}} at {{order.created | date: 'short'}}
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h4>New Customers</h4>
+    <ul>
+      <li ng-repeat='customer in customers | limitTo: -4 |orderBy:"created":true |filter:filterStuff'>
+        {{customer.name}} joined the store at {{customer.created | date: 'short'}}
+      </li>
+    </ul>
+  </div>
+
+</div>

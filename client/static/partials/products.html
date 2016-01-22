@@ -1,0 +1,18 @@
+<div ng-controller = 'ProductController'>
+  <div>
+    <input type="text" placeholder='serach...' ng-model='filter_name'>
+    <h3>Add a new product</h3>
+    Name: <input type="text" ng-model='new_product.name'><br>
+    Image(url):<input type="text" ng-model='new_product.image'><br>
+    Description: <textarea ng-model='new_product.description'></textarea><br>
+    Initial Quantity:
+    <select ng-options='n for n in array' ng-model='new_product.quantity'></select>
+    <button type="submit" ng-click='create()'>Add new product</button>
+  </div>
+  <div ng-repeat='product in products | filter: filter_name' class="products" >
+    <img ng-src="{{product.image}}" alt = '{{product.name}}picture'>
+    <p ng-bind='product.name'></p>
+    <!-- <p ng-bind='product.description'></p> -->
+    <p>(<span ng-bind='product.quantity'></span> left)</p>
+  </div>
+</div>

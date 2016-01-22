@@ -1,5 +1,5 @@
 {
-  "name": "XXXXX",
+  "name": "MINI_STORE",
   "dependencies": {
     "body-parser": "1.14.2",
     "express": "~4.10.0",
